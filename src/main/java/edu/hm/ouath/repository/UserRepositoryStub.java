@@ -9,6 +9,7 @@ import edu.hm.oauth.model.UserGroup;
 
 public class UserRepositoryStub implements UserRepository {
 
+    private static int lastID = 0;
     private static final ArrayList<User> REGISTERED_USERS = new ArrayList<>();
 
     static {
@@ -26,7 +27,7 @@ public class UserRepositoryStub implements UserRepository {
 
     @Override
     public ServiceStatus createUser(User user) {
-        // TODO Auto-generated method stub
+
         return null;
     }
 
@@ -34,5 +35,13 @@ public class UserRepositoryStub implements UserRepository {
     public ServiceStatus updateUser(String userID, User user) {
         // TODO Auto-generated method stub
         return null;
+    }
+
+    public static int getLastID() {
+        return lastID;
+    }
+
+    public static void setLastID(int lastID) {
+        UserRepositoryStub.lastID = lastID;
     }
 }
