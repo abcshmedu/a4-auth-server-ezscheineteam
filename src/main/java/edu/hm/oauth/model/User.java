@@ -13,6 +13,32 @@ public class User {
     private UserGroup group;
 
     /**
+     * Empty user object not allowed, hidden empty default constructor.
+     */
+    private User() {
+    }
+
+    /**
+     * Constructor to be used when creating a new user object.
+     * 
+     * @param name
+     *            Name of this user.
+     * @param password
+     *            Password of this user.
+     * @param email
+     *            E-Mail address of this user.
+     * @param group
+     *            Group membership of this user.
+     */
+    public User(String name, String password, String email, UserGroup group) {
+        super();
+        this.name = name;
+        this.password = password;
+        this.email = email;
+        this.group = group;
+    }
+
+    /**
      * Gets the name of this user.
      * 
      * @return The name of this user.
