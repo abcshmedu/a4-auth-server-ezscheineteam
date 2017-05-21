@@ -1,5 +1,11 @@
 package edu.hm.oauth.business;
 
-public interface CheckService {
+import edu.hm.oauth.model.Token;
 
+/**
+ * 
+ *
+ */
+public interface CheckService {
+    ServiceStatus checkToken(Token token);
 }

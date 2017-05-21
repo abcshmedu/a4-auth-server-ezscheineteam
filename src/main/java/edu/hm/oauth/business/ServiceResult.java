@@ -1,8 +1,8 @@
 package edu.hm.oauth.business;
 
 /**
- * A class containing the result object of an request and
- * meta data to the status of the operation.
+ * A class containing the result object of an request and meta data to the
+ * status of the operation.
  */
 public class ServiceResult {
 
@@ -12,7 +12,9 @@ public class ServiceResult {
 
     /**
      * Creates a new ServiceResult instance.
-     * @param status - the state of an request operation.
+     * 
+     * @param status
+     *            - the state of an request operation.
      */
     public ServiceResult(ServiceStatus status) {
         this.status = status;
@@ -21,8 +23,11 @@ public class ServiceResult {
 
     /**
      * Creates a new ServiceResult instance.
-     * @param status - the state of an request operation.
-     * @param result - the result object of the request operation.
+     * 
+     * @param status
+     *            - the state of an request operation.
+     * @param result
+     *            - the result object of the request operation.
      */
     public ServiceResult(ServiceStatus status, Object result) {
         this.status = status;
@@ -31,6 +36,7 @@ public class ServiceResult {
 
     /**
      * Checks if we already have a result object.
+     * 
      * @return true, if there is a result object, false otherwise.
      */
     public boolean containsResult() {
@@ -39,6 +45,7 @@ public class ServiceResult {
 
     /**
      * The current state of the operation.
+     * 
      * @return state of the current operation
      */
     public ServiceStatus getStatus() {
@@ -47,6 +54,7 @@ public class ServiceResult {
 
     /**
      * The result of the operation.
+     * 
      * @return result of the operation.
      */
     public Object getResult() {
