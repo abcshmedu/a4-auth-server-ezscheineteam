@@ -1,11 +1,14 @@
 package edu.hm.oauth.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 /**
  * This class represents an user in the system. It stores values identifying a
  * single person.
  */
 public class User {
 	private String name;
+	@JsonIgnore
 	private String password;
 	private int iD;
 	private boolean active;

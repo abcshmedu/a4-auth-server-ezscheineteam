@@ -1,14 +1,14 @@
 package edu.hm.oauth.model;
 
-import java.sql.Timestamp;
+import java.sql.Date;
 
 /**
  * Represents a token generated for an user.
  */
 public class Token {
 
-	private Timestamp createdOn;
-	private Timestamp validUntil;
+	private Date createdOn;
+	private Date validUntil;
 	private User user;
 
 	/**
@@ -27,7 +27,7 @@ public class Token {
 	 * @param user
 	 *            User that this token is assigned to.
 	 */
-	public Token(Timestamp createdOn, Timestamp validUntil, User user) {
+	public Token(Date createdOn, Date validUntil, User user) {
 		super();
 		this.createdOn = createdOn;
 		this.validUntil = validUntil;
@@ -39,7 +39,7 @@ public class Token {
 	 * 
 	 * @return Date when this token was generated.
 	 */
-	public Timestamp getCreatedOn() {
+	public Date getCreatedOn() {
 		return createdOn;
 	}
 
@@ -49,7 +49,7 @@ public class Token {
 	 * @param createdOn
 	 *            New date value for when this token was created.
 	 */
-	public void setCreatedOn(Timestamp createdOn) {
+	public void setCreatedOn(Date createdOn) {
 		this.createdOn = createdOn;
 	}
 
@@ -58,7 +58,7 @@ public class Token {
 	 * 
 	 * @return Date when this token invalidates.
 	 */
-	public Timestamp getValidUntil() {
+	public Date getValidUntil() {
 		return validUntil;
 	}
 
@@ -68,7 +68,7 @@ public class Token {
 	 * @param validUntil
 	 *            Date when this token invalidates.
 	 */
-	public void setValidUntil(Timestamp validUntil) {
+	public void setValidUntil(Date validUntil) {
 		this.validUntil = validUntil;
 	}
 

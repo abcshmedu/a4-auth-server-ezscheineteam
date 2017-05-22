@@ -1,5 +1,7 @@
 package edu.hm.oauth.resources;
 
+import java.sql.Timestamp;
+
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -24,7 +26,7 @@ public class CheckResource {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public Response checkToken(@PathParam("token")String inputToken) {
-        Token token = new Token();
+        Token token = new Token(new Timestamp(1495444780185),new Timestamp(1495444780185),"");
         ServiceResult result = checkService.validateToken(token);
         return Response.ok().entity(result.getResult()).build();
     }

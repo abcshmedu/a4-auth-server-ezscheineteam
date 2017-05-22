@@ -1,6 +1,7 @@
 package edu.hm.ouath.repository;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import edu.hm.oauth.business.ServiceStatus;
@@ -12,9 +13,9 @@ public class TokenRepositoryStub implements TokenRepository {
 	private static List<Token> storedTokens = new ArrayList<>();
 	
 	static{
-		storedTokens.add(new Token());
-		storedTokens.add(new Token());
-		storedTokens.add(new Token());
+		//storedTokens.add(new Token());
+		//storedTokens.add(new Token());
+		//storedTokens.add(new Token());
 	}
 	
     @Override
