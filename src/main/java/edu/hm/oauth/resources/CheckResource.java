@@ -1,7 +1,5 @@
 package edu.hm.oauth.resources;
 
-import java.util.Date;
-
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -15,8 +13,6 @@ import edu.hm.oauth.business.CheckServiceImpl;
 import edu.hm.oauth.business.ServiceResult;
 import edu.hm.oauth.business.UserService;
 import edu.hm.oauth.business.UserServiceStub;
-import edu.hm.oauth.model.Token;
-import edu.hm.oauth.model.User;
 
 @Path("check")
 public class CheckResource {

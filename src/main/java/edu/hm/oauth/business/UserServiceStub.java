@@ -2,6 +2,7 @@ package edu.hm.oauth.business;
 
 import java.util.List;
 
+import edu.hm.oauth.model.AuthData;
 import edu.hm.oauth.model.User;
 import edu.hm.ouath.repository.UserRepository;
 import edu.hm.ouath.repository.UserRepositoryStub;
@@ -17,9 +18,20 @@ public class UserServiceStub implements UserService {
 	}
 
 	@Override
-	public ServiceResult authenticateUser(User user) {
-		// TODO Auto-generated method stub
-		return null;
+	public ServiceResult authenticateUser(AuthData adata) {
+		String name = adata.getName();
+		String password = adata.getPassword();
+		List<User> users = userRepository.getAllUsers();
+		for (User u : users) {
+			if (u.getName().equals(name)) {
+				if (u.getPassword().equals(password)) {
+					return new ServiceResult(ServiceStatus.OK, u);
+				}
+				return new ServiceResult(ServiceStatus.USER_INVALID_CREDENTIALS);
+			}
+		}
+		return new ServiceResult(ServiceStatus.USER_NOT_FOUND);
+
 	}
 
 	@Override
