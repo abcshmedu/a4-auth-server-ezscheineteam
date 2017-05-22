@@ -14,7 +14,7 @@ public class CheckServiceImpl implements CheckService {
 	 * user that the token is assigned to.
 	 */
 	@Override
-	public ServiceResult validateToken(Token token) {
+	public ServiceResult validateToken(String token) {
 		tokenRepository.validateToken(token);
 		return new ServiceResult(ServiceStatus.OK, TokenStringGenerator.nextToken());
 	}

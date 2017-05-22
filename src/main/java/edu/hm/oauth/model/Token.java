@@ -1,12 +1,15 @@
 package edu.hm.oauth.model;
 
-import java.sql.Date;
+import java.util.Date;
+
+import edu.hm.oauth.toolbox.TokenStringGenerator;
 
 /**
  * Represents a token generated for an user.
  */
 public class Token {
 
+	private String tokenString;
 	private Date createdOn;
 	private Date validUntil;
 	private User user;
@@ -32,6 +35,7 @@ public class Token {
 		this.createdOn = createdOn;
 		this.validUntil = validUntil;
 		this.user = user;
+		this.tokenString = TokenStringGenerator.nextToken();
 	}
 
 	/**
@@ -89,6 +93,14 @@ public class Token {
 	 */
 	public void setUser(User user) {
 		this.user = user;
+	}
+
+	public String getTokenString() {
+		return tokenString;
+	}
+
+	public void setTokenString(String tokenString) {
+		this.tokenString = tokenString;
 	}
 
 }

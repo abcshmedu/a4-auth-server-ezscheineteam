@@ -8,6 +8,6 @@ public interface TokenRepository {
 
     ServiceStatus generateToken(User user);
 
-    ServiceStatus validateToken(Token token);
+    ServiceStatus validateToken(String token);
 
 }

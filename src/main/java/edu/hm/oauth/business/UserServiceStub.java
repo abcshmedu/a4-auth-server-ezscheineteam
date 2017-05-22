@@ -29,9 +29,9 @@ public class UserServiceStub implements UserService {
 	}
 
 	@Override
-	public ServiceStatus getUser(String userID) {
-		// TODO Auto-generated method stub
-		return null;
+	public ServiceResult getUser(String userID) {
+		User user = userRepository.getUser(Integer.getInteger(userID));
+		return new ServiceResult(ServiceStatus.OK, user);
 	}
 
 	@Override

@@ -8,12 +8,12 @@ import edu.hm.oauth.model.User;
 
 public interface UserRepository {
 
-    List<User> getAllUsers();
-    
-    boolean createUser(User user);
-    
-    boolean updateUser(String userID, User user);
-    
-    
-    
+	List<User> getAllUsers();
+
+	boolean createUser(User user);
+
+	boolean updateUser(String userID, User user);
+
+	User getUser(int userID);
+
 }

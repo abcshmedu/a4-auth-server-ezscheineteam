@@ -10,7 +10,7 @@ public interface UserService {
 
     ServiceResult getAllUsers();
 
-    ServiceStatus getUser(String userID);
+    ServiceResult getUser(String userID);
 
     ServiceStatus updateUser(User user);
 
