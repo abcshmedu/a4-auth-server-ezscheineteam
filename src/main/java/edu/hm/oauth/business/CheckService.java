@@ -7,5 +7,5 @@ import edu.hm.oauth.model.User;
  * Interface for token related functionality.
  */
 public interface CheckService {
-    ServiceStatus validateToken(Token token);
+	ServiceResult validateToken(Token token);
 }

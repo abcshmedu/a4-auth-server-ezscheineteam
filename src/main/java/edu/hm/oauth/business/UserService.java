@@ -6,7 +6,7 @@ public interface UserService {
 
     ServiceStatus addUser(User user);
 
-    ServiceStatus authenticateUser(User user);
+    ServiceResult authenticateUser(User user);
 
     ServiceStatus getAllUsers();
 

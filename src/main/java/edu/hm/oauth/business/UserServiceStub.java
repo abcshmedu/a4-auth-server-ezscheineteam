@@ -11,7 +11,7 @@ public class UserServiceStub implements UserService {
     }
 
     @Override
-    public ServiceStatus authenticateUser(User user) {
+    public ServiceResult authenticateUser(User user) {
         // TODO Auto-generated method stub
         return null;
     }

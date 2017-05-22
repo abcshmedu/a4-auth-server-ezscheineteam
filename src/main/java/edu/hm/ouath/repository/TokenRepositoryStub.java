@@ -8,7 +8,7 @@ public class TokenRepositoryStub implements TokenRepository {
 
     @Override
     public ServiceStatus generateToken(User user) {
-        // TODO Auto-generated method stub
+    	
         return null;
     }
 
