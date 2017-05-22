@@ -8,6 +8,8 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+import edu.hm.oauth.business.CheckService;
+import edu.hm.oauth.business.CheckServiceImpl;
 import edu.hm.oauth.business.ServiceResult;
 import edu.hm.oauth.business.UserService;
 import edu.hm.oauth.business.UserServiceStub;
@@ -15,7 +17,8 @@ import edu.hm.oauth.business.UserServiceStub;
 @Path("users")
 public class UsersResource {
 
-	private UserService userService = new UserServiceStub();
+	private final UserService userService = new UserServiceStub();
+	private final CheckService checkService = new CheckServiceImpl();
 	
     @GET
     @Path("")
@@ -38,8 +41,7 @@ public class UsersResource {
     @Path("authenticate")
     @Produces(MediaType.APPLICATION_JSON)
     public Response authenticateUser() {
-        // Copy copy = new Copy(user, book);
-        // ServiceStatus result = copyService.addBook(copy);
+    	
         return Response.ok("baba i dupa").build();
     }
 
