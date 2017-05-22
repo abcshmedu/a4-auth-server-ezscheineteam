@@ -14,8 +14,7 @@ public class TokenRepositoryStub implements TokenRepository {
 
     @Override
     public ServiceStatus validateToken(Token token) {
-        // TODO Auto-generated method stub
-        return null;
+        return ServiceStatus.OK;
     }
 
 }
