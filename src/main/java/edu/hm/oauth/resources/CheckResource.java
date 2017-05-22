@@ -11,8 +11,10 @@ import javax.ws.rs.core.Response;
 import edu.hm.oauth.business.CheckService;
 import edu.hm.oauth.business.CheckServiceImpl;
 import edu.hm.oauth.business.ServiceResult;
+import edu.hm.oauth.business.ServiceStatus;
 import edu.hm.oauth.business.UserService;
 import edu.hm.oauth.business.UserServiceStub;
+import edu.hm.oauth.model.Token;
 
 @Path("check")
 public class CheckResource {
@@ -25,6 +27,11 @@ public class CheckResource {
     @Produces(MediaType.APPLICATION_JSON)
     public Response checkToken(@PathParam("token") String token) {
         ServiceResult result = checkService.validateToken(token);
-        return Response.ok().entity(result.getResult()).build();
+        if(result.getStatus().equals(ServiceStatus.OK)){
+        	Token t = (Token) result.getResult();
+        	return Response.status(result.getStatus().getStatus()).entity(t).build();
+        }
+        return Response.status(result.getStatus().getStatus()).entity(result).build();
+        
     }
 }

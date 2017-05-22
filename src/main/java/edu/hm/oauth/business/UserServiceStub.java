@@ -3,13 +3,17 @@ package edu.hm.oauth.business;
 import java.util.List;
 
 import edu.hm.oauth.model.AuthData;
+import edu.hm.oauth.model.Token;
 import edu.hm.oauth.model.User;
+import edu.hm.ouath.repository.TokenRepository;
+import edu.hm.ouath.repository.TokenRepositoryStub;
 import edu.hm.ouath.repository.UserRepository;
 import edu.hm.ouath.repository.UserRepositoryStub;
 
 public class UserServiceStub implements UserService {
 
 	private UserRepository userRepository = new UserRepositoryStub();
+	private TokenRepository tokenRepository = new TokenRepositoryStub();
 
 	@Override
 	public ServiceStatus addUser(User user) {
@@ -25,7 +29,9 @@ public class UserServiceStub implements UserService {
 		for (User u : users) {
 			if (u.getName().equals(name)) {
 				if (u.getPassword().equals(password)) {
-					return new ServiceResult(ServiceStatus.OK, u);
+					// user authenticated, generate token and return it
+					Token resultToken = tokenRepository.generateToken(u);
+					return new ServiceResult(ServiceStatus.OK, resultToken);
 				}
 				return new ServiceResult(ServiceStatus.USER_INVALID_CREDENTIALS);
 			}

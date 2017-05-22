@@ -16,6 +16,7 @@ import edu.hm.oauth.business.ServiceStatus;
 import edu.hm.oauth.business.UserService;
 import edu.hm.oauth.business.UserServiceStub;
 import edu.hm.oauth.model.AuthData;
+import edu.hm.oauth.model.Token;
 
 @Path("users")
 public class UsersResource {
@@ -41,23 +42,24 @@ public class UsersResource {
 	}
 
 	@POST
-    @Path("authenticate")
-    @Consumes(MediaType.APPLICATION_JSON)
-    @Produces(MediaType.APPLICATION_JSON)
-    public Response authenticateUser(AuthData adata) {
-    	// Check if credentials correct
+	@Path("authenticate")
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
+	public Response authenticateUser(AuthData adata) {
+		// Check if credentials correct
 		ServiceResult authResult = userService.authenticateUser(adata);
-    	
-    	if(authResult.getStatus().equals(ServiceStatus.OK)){
-    		//generate token and return it
-    		return Response.ok("response").build();
-    	}
-    	else{
-    		// authentication failed, pass error notification
-    		return Response.status(authResult.getStatus().getStatus()).entity(authResult).build();
-    	}
-    	// TODO: deactivate previous tokens for this user
-    }
+
+		if (authResult.getStatus().equals(ServiceStatus.OK)) {
+			Token t = (Token)authResult.getResult();
+			// generate token and return it
+			
+			return Response.ok(t).build();
+		} else {
+			// authentication failed, pass error notification
+			return Response.status(authResult.getStatus().getStatus()).entity(authResult).build();
+		}
+		// TODO: deactivate previous tokens for this user
+	}
 
 	@PUT
 	@Path("{id}")

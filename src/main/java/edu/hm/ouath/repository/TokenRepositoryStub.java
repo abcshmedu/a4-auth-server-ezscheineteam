@@ -12,24 +12,13 @@ import edu.hm.oauth.model.User;
 public class TokenRepositoryStub implements TokenRepository {
 
 	private static List<Token> storedTokens = new ArrayList<>();
-	private static UserRepository userRepository = new UserRepositoryStub();
-
-	static {
-		storedTokens.add(new Token(new Date(1495448411137l), new Date(1495448411137l),
-				userRepository.getUser(1)));
-		System.out.println(storedTokens.get(0).getTokenString());
-		storedTokens.add(new Token(new Date(System.currentTimeMillis()), new Date(System.currentTimeMillis()),
-				userRepository.getUser(2)));
-		storedTokens.add(new Token(new Date(System.currentTimeMillis()), new Date(System.currentTimeMillis()),
-				userRepository.getUser(3)));
-		
-	}
 
 	@Override
 	public Token generateToken(User user) {
-		Token token = new Token(new Date(System.currentTimeMillis()), new Date(System.currentTimeMillis()), user);
+		Token token = new Token(new Date(System.currentTimeMillis()), new Date(System.currentTimeMillis() + 60000l),
+				user);
 		storedTokens.add(token);
-		return null;
+		return token;
 	}
 
 	@Override
