@@ -1,9 +1,8 @@
 package edu.hm.ouath.repository;
 
 import java.util.ArrayList;
+import java.util.List;
 
-import edu.hm.oauth.business.ServiceResult;
-import edu.hm.oauth.business.ServiceStatus;
 import edu.hm.oauth.model.User;
 import edu.hm.oauth.model.UserGroup;
 
@@ -21,20 +20,18 @@ public class UserRepositoryStub implements UserRepository {
     }
 
     @Override
-    public ServiceResult getAllUsers() {
-        return new ServiceResult(ServiceStatus.OK, REGISTERED_USERS.toArray(new User[REGISTERED_USERS.size()]));
+    public  List<User> getAllUsers() {
+        return REGISTERED_USERS;
     }
 
     @Override
-    public ServiceStatus createUser(User user) {
-
-        return null;
+    public boolean createUser(User user) {
+        return false;
     }
 
     @Override
-    public ServiceStatus updateUser(String userID, User user) {
-        // TODO Auto-generated method stub
-        return null;
+    public boolean updateUser(String userID, User user) {
+        return false;
     }
 
     public static int getLastID() {

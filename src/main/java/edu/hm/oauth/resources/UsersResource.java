@@ -8,16 +8,21 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+import edu.hm.oauth.business.ServiceResult;
+import edu.hm.oauth.business.UserService;
+import edu.hm.oauth.business.UserServiceStub;
+
 @Path("users")
 public class UsersResource {
 
+	private UserService userService = new UserServiceStub();
+	
     @GET
     @Path("")
     @Produces(MediaType.APPLICATION_JSON)
     public Response listUsers() {
-        // Copy copy = new Copy(user, book);
-        // ServiceStatus result = copyService.addBook(copy);
-        return Response.ok("listUsers").build();
+    	ServiceResult result = userService.getAllUsers();
+    	return Response.ok().entity(result.getResult()).build();
     }
 
     @POST

@@ -1,16 +1,18 @@
 package edu.hm.ouath.repository;
 
+import java.util.List;
+
 import edu.hm.oauth.business.ServiceResult;
 import edu.hm.oauth.business.ServiceStatus;
 import edu.hm.oauth.model.User;
 
 public interface UserRepository {
 
-    ServiceResult getAllUsers();
+    List<User> getAllUsers();
     
-    ServiceStatus createUser(User user);
+    boolean createUser(User user);
     
-    ServiceStatus updateUser(String userID, User user);
+    boolean updateUser(String userID, User user);
     
     
     

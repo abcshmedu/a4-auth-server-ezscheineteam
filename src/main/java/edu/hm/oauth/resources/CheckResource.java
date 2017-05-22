@@ -29,4 +29,3 @@ public class CheckResource {
         return Response.ok().entity(result.getResult()).build();
     }
 }
-

@@ -8,7 +8,7 @@ public interface UserService {
 
     ServiceResult authenticateUser(User user);
 
-    ServiceStatus getAllUsers();
+    ServiceResult getAllUsers();
 
     ServiceStatus getUser(String userID);
 

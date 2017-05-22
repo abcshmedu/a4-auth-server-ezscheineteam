@@ -1,12 +1,16 @@
 package edu.hm.oauth.toolbox;
 
-import java.math.BigInteger;
 import java.security.SecureRandom;
+import java.util.UUID;
 
 public final class TokenStringGenerator {
-	  private static SecureRandom random = new SecureRandom();
+	private static SecureRandom random = new SecureRandom();
 
-	  public static String nextToken() {
-	    return new BigInteger(130, random).toString(128);
-	  }
+	public static String nextToken() {
+		String uuid = UUID.randomUUID().toString();
+		uuid += "-" + UUID.randomUUID().toString();
+		uuid += "-" + UUID.randomUUID().toString();
+		uuid += "-" + UUID.randomUUID().toString();
+		return uuid;
 	}
+}
