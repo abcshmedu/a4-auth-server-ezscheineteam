@@ -13,6 +13,7 @@ public class Token {
 	private Date createdOn;
 	private Date validUntil;
 	private User user;
+	private boolean isActive;
 
 	/**
 	 * Default empty constructor hidden.
@@ -35,6 +36,7 @@ public class Token {
 		this.validUntil = validUntil;
 		this.user = user;
 		this.tokenString = TokenStringGenerator.nextToken();
+		this.isActive = true;
 	}
 
 	/**
@@ -100,6 +102,14 @@ public class Token {
 
 	public void setTokenString(String tokenString) {
 		this.tokenString = tokenString;
+	}
+
+	public boolean isActive() {
+		return isActive;
+	}
+
+	public void setActive(boolean isActive) {
+		this.isActive = isActive;
 	}
 
 }

@@ -15,7 +15,10 @@ public class CheckServiceImpl implements CheckService {
 	 */
 	@Override
 	public ServiceResult validateToken(String token) {
-		tokenRepository.validateToken(token);
-		return new ServiceResult(ServiceStatus.OK, TokenStringGenerator.nextToken());
+		Token t = tokenRepository.validateToken(token);
+		if(t == null){
+			return new ServiceResult(ServiceStatus.TOKEN_NOT_FOUND, "Token not found");
+		}
+		return new ServiceResult(ServiceStatus.OK, t);
 	}
 }

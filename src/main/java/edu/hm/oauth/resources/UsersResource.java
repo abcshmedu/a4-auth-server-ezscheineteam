@@ -1,5 +1,6 @@
 package edu.hm.oauth.resources;
 
+import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
@@ -34,15 +35,16 @@ public class UsersResource {
     public Response createUser() {
         // Copy copy = new Copy(user, book);
         // ServiceStatus result = copyService.addBook(copy);
-        return Response.ok("baba i dupa").build();
+        return Response.ok("response").build();
     }
 
     @POST
     @Path("authenticate")
+    @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public Response authenticateUser() {
     	
-        return Response.ok("baba i dupa").build();
+        return Response.ok("response").build();
     }
 
     @PUT
@@ -51,7 +53,7 @@ public class UsersResource {
     public Response updateUser() {
         // Copy copy = new Copy(user, book);
         // ServiceStatus result = copyService.addBook(copy);
-        return Response.ok("baba i dupa").build();
+        return Response.ok("response").build();
     }
 
     @GET
@@ -60,7 +62,7 @@ public class UsersResource {
     public Response getUserData() {
         // Copy copy = new Copy(user, book);
         // ServiceStatus result = copyService.addBook(copy);
-        return Response.ok("baba i dupa").build();
+        return Response.ok("response").build();
     }
 
 }

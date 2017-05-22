@@ -15,12 +15,14 @@ public class TokenRepositoryStub implements TokenRepository {
 	private static UserRepository userRepository = new UserRepositoryStub();
 
 	static {
-		storedTokens.add(new Token(new Date(System.currentTimeMillis()), new Date(System.currentTimeMillis()),
+		storedTokens.add(new Token(new Date(1495448411137l), new Date(1495448411137l),
 				userRepository.getUser(1)));
+		System.out.println(storedTokens.get(0).getTokenString());
 		storedTokens.add(new Token(new Date(System.currentTimeMillis()), new Date(System.currentTimeMillis()),
 				userRepository.getUser(2)));
 		storedTokens.add(new Token(new Date(System.currentTimeMillis()), new Date(System.currentTimeMillis()),
 				userRepository.getUser(3)));
+		
 	}
 
 	@Override
@@ -35,7 +37,6 @@ public class TokenRepositoryStub implements TokenRepository {
 		for (Token t : storedTokens) {
 			if (t.getTokenString().equals(inputTokenString)) {
 				return t;
-
 			}
 		}
 		return null;

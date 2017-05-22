@@ -27,8 +27,8 @@ public class CheckResource {
     @Path("{token}")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Response checkToken(@PathParam("token")String inputToken) {
-        ServiceResult result = checkService.validateToken(inputToken);
+    public Response checkToken(@PathParam("token") String token) {
+        ServiceResult result = checkService.validateToken(token);
         return Response.ok().entity(result.getResult()).build();
     }
 }

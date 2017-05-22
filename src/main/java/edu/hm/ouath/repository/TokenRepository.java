@@ -1,6 +1,5 @@
 package edu.hm.ouath.repository;
 
-import edu.hm.oauth.business.ServiceResult;
 import edu.hm.oauth.model.Token;
 import edu.hm.oauth.model.User;
 
