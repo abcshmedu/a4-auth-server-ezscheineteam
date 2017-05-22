@@ -1,13 +1,13 @@
 package edu.hm.ouath.repository;
 
-import edu.hm.oauth.business.ServiceStatus;
+import edu.hm.oauth.business.ServiceResult;
 import edu.hm.oauth.model.Token;
 import edu.hm.oauth.model.User;
 
 public interface TokenRepository {
 
-    ServiceStatus generateToken(User user);
+	Token generateToken(User user);
 
-    ServiceStatus validateToken(String token);
+    Token validateToken(String token);
 
 }

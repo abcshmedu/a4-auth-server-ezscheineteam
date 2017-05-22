@@ -31,7 +31,6 @@ public class Token {
 	 *            User that this token is assigned to.
 	 */
 	public Token(Date createdOn, Date validUntil, User user) {
-		super();
 		this.createdOn = createdOn;
 		this.validUntil = validUntil;
 		this.user = user;
