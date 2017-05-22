@@ -24,7 +24,7 @@ public class CheckResource {
     @Produces(MediaType.APPLICATION_JSON)
     public Response checkToken(@PathParam("token")String inputToken) {
         Token token = new Token();
-        ServiceStatus result = checkService.checkToken(token);
+        ServiceStatus result = checkService.validateToken(token);
         return Response.status(result.getStatus()).entity(result).build();
     }
 }
