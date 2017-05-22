@@ -36,6 +36,7 @@ public class User {
         this.password = password;
         this.email = email;
         this.group = group;
+        this.active = true;
     }
 
     /**
