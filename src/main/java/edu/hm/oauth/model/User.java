@@ -1,6 +1,10 @@
 package edu.hm.oauth.model;
 
+import javax.tools.Tool;
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import edu.hm.oauth.toolbox.Toolbox;
 
 /**
  * This class represents an user in the system. It stores values identifying a
@@ -40,6 +44,7 @@ public class User {
 		this.email = email;
 		this.group = group;
 		this.active = true;
+		this.iD = Toolbox.nextID();
 	}
 
 	/**

@@ -66,7 +66,7 @@ public class UsersResource {
     @PUT
     @Path("{id}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response updateUser() {
+    public Response updateUser(User user) {
         
         return Response.ok("").build();
     }
@@ -79,5 +79,4 @@ public class UsersResource {
         User u = (User) result.getResult();
         return Response.status(result.getStatus().getStatus()).entity(result).build();
     }
-
 }
