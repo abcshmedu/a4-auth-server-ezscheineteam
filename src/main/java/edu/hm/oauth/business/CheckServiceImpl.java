@@ -1,9 +1,9 @@
 package edu.hm.oauth.business;
 
 import edu.hm.oauth.model.Token;
-import edu.hm.oauth.toolbox.TokenStringGenerator;
-import edu.hm.ouath.repository.TokenRepository;
-import edu.hm.ouath.repository.TokenRepositoryStub;
+import edu.hm.oauth.repository.TokenRepository;
+import edu.hm.oauth.repository.TokenRepositoryStub;
+import edu.hm.oauth.toolbox.Toolbox;
 
 public class CheckServiceImpl implements CheckService {
 

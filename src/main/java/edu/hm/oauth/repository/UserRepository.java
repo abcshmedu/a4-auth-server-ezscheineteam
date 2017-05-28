@@ -1,4 +1,4 @@
-package edu.hm.ouath.repository;
+package edu.hm.oauth.repository;
 
 import java.util.List;
 
@@ -14,6 +14,6 @@ public interface UserRepository {
 
 	boolean updateUser(String userID, User user);
 
-	User getUser(int userID);
+	User getUser(String userName);
 
 }

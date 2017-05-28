@@ -1,6 +1,8 @@
 package edu.hm.oauth.model;
 
-public class AuthData {
+import java.io.Serializable;
+
+public class AuthData implements Serializable{
 
 	private String name;
 	private String password;

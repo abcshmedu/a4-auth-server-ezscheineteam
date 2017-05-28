@@ -5,10 +5,10 @@ import java.util.List;
 import edu.hm.oauth.model.AuthData;
 import edu.hm.oauth.model.Token;
 import edu.hm.oauth.model.User;
-import edu.hm.ouath.repository.TokenRepository;
-import edu.hm.ouath.repository.TokenRepositoryStub;
-import edu.hm.ouath.repository.UserRepository;
-import edu.hm.ouath.repository.UserRepositoryStub;
+import edu.hm.oauth.repository.TokenRepository;
+import edu.hm.oauth.repository.TokenRepositoryStub;
+import edu.hm.oauth.repository.UserRepository;
+import edu.hm.oauth.repository.UserRepositoryStub;
 
 public class UserServiceStub implements UserService {
 
@@ -48,8 +48,12 @@ public class UserServiceStub implements UserService {
 
 	@Override
 	public ServiceResult getUser(String userID) {
-		User user = userRepository.getUser(Integer.getInteger(userID));
-		return new ServiceResult(ServiceStatus.OK, user);
+		User user = userRepository.getUser(userID);
+		if(user != null)
+		    return new ServiceResult(ServiceStatus.OK, user);
+		else{
+		    return new ServiceResult(ServiceStatus.USER_NOT_FOUND, null);
+		}
 	}
 
 	@Override

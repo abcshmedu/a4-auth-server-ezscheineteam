@@ -2,13 +2,15 @@ package edu.hm.oauth.model;
 
 import java.util.Date;
 
-import edu.hm.oauth.toolbox.TokenStringGenerator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import edu.hm.oauth.toolbox.Toolbox;
 
 /**
  * Represents a token generated for an user.
  */
 public class Token {
-
+    @JsonIgnore
 	private String tokenString;
 	private Date createdOn;
 	private Date validUntil;
@@ -35,7 +37,7 @@ public class Token {
 		this.createdOn = createdOn;
 		this.validUntil = validUntil;
 		this.user = user;
-		this.tokenString = TokenStringGenerator.nextToken();
+		this.tokenString = Toolbox.nextToken();
 		this.isActive = true;
 	}
 

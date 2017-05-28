@@ -1,4 +1,4 @@
-package edu.hm.ouath.repository;
+package edu.hm.oauth.repository;
 
 import edu.hm.oauth.model.Token;
 import edu.hm.oauth.model.User;

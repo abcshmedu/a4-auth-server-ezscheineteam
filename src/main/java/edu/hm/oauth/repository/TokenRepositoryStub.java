@@ -1,4 +1,4 @@
-package edu.hm.ouath.repository;
+package edu.hm.oauth.repository;
 
 import java.util.ArrayList;
 import java.util.Date;
