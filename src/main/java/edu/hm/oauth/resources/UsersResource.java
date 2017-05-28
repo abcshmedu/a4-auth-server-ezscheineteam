@@ -10,8 +10,6 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-import edu.hm.oauth.business.CheckService;
-import edu.hm.oauth.business.CheckServiceImpl;
 import edu.hm.oauth.business.ServiceResult;
 import edu.hm.oauth.business.ServiceStatus;
 import edu.hm.oauth.business.UserService;
@@ -21,12 +19,19 @@ import edu.hm.oauth.model.Token;
 import edu.hm.oauth.model.User;
 import edu.hm.oauth.toolbox.Toolbox;
 
+/**
+ * Handles all request directed to the /users/ subpath.
+ */
 @Path("users")
 public class UsersResource {
 
     private final UserService userService = new UserServiceStub();
-    private final CheckService checkService = new CheckServiceImpl();
 
+    /**
+     * Lists all saved users.
+     * 
+     * @return - A list of all users in the system.
+     */
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public Response listUsers() {
@@ -34,6 +39,13 @@ public class UsersResource {
         return Response.ok().entity(result.getResult()).build();
     }
 
+    /**
+     * Creates a new user object based on the information parsed from the JSON.
+     * 
+     * @param user
+     *            - User informations - name, password, email address
+     * @return - 200 OK if succeeded, error codes if not.
+     */
     @POST
     @Path("create")
     @Produces(MediaType.APPLICATION_JSON)
@@ -42,6 +54,14 @@ public class UsersResource {
         return Response.status(status.getStatus()).entity(status.getDetail()).build();
     }
 
+    /**
+     * Authenticates an user in the system. If passed credentials are correct,
+     * then a new token is generated.
+     * 
+     * @param adata
+     *            - Authentification data parsed from JSON.
+     * @return A new token if credentials correct, error response otherwise.
+     */
     @POST
     @Path("authenticate")
     @Consumes(MediaType.APPLICATION_JSON)
@@ -59,30 +79,44 @@ public class UsersResource {
             // authentication failed, pass error notification
             return Response.status(authResult.getStatus().getStatus()).entity(authResult).build();
         }
-        // TODO: deactivate previous tokens for this user
     }
 
+    /**
+     * Updates the stored user data with the given new one.
+     * 
+     * @param user
+     *            - New user data parsed from JSON.
+     * @return - Response according to the result status - operation succeeded
+     *         or not.
+     */
     @PUT
     @Path("{id}")
     @Produces(MediaType.APPLICATION_JSON)
     public Response updateUser(User user) {
         // the user can change only the password and email values
         ServiceResult getUserResult = userService.getUser(user.getName());
-        
+
         // if user not found send error
-        if (!getUserResult.getStatus().equals(ServiceStatus.OK))
+        if (!getUserResult.getStatus().equals(ServiceStatus.OK)) {
             return Response.status(getUserResult.getStatus().getStatus()).entity(getUserResult).build();
+        }
         // otherwise proceed
         ServiceResult updateResult = userService.updateUser(user);
         return Response.ok().entity(updateResult.getResult()).build();
     }
 
+    /**
+     * Gets the data of the user specified by the given id - the unique name.
+     * 
+     * @param id
+     *            - the name of the user.
+     * @return Response - user was found or not.
+     */
     @GET
     @Path("{id}")
     @Produces(MediaType.APPLICATION_JSON)
     public Response getUserData(@PathParam("id") String id) {
         ServiceResult result = userService.getUser(id);
-        User u = (User) result.getResult();
         return Response.status(result.getStatus().getStatus()).entity(result).build();
     }
 }

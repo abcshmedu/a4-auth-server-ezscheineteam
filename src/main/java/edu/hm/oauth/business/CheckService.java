@@ -1,11 +1,15 @@
 package edu.hm.oauth.business;
 
-import edu.hm.oauth.model.Token;
-import edu.hm.oauth.model.User;
-
 /**
  * Interface for token related functionality.
  */
 public interface CheckService {
-	ServiceResult validateToken(String inputToken);
+    /**
+     * Validates a token string, checks if it is correct.
+     * 
+     * @param inputToken
+     *            - the token string
+     * @return OK and user data if token string correct, error if wrong.
+     */
+    ServiceResult validateToken(String inputToken);
 }

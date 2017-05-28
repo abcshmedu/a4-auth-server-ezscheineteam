@@ -12,26 +12,33 @@ import edu.hm.oauth.business.CheckService;
 import edu.hm.oauth.business.CheckServiceImpl;
 import edu.hm.oauth.business.ServiceResult;
 import edu.hm.oauth.business.ServiceStatus;
-import edu.hm.oauth.business.UserService;
-import edu.hm.oauth.business.UserServiceStub;
 import edu.hm.oauth.model.Token;
 
+/**
+ * Handles all request directed to the /check/ subpath.
+ */
 @Path("check")
 public class CheckResource {
 
     private final CheckService checkService = new CheckServiceImpl();
-    private final UserService userService = new UserServiceStub();
+
+    /**
+     * Checks if a token is valid.
+     * 
+     * @param token
+     *            - The token string.
+     * @return - Informations about the token and the owner of this token.
+     */
     @GET
     @Path("{token}")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public Response checkToken(@PathParam("token") String token) {
         ServiceResult result = checkService.validateToken(token);
-        if(result.getStatus().equals(ServiceStatus.OK)){
-        	Token t = (Token) result.getResult();
-        	return Response.status(result.getStatus().getStatus()).entity(t).build();
+        if (result.getStatus().equals(ServiceStatus.OK)) {
+            Token t = (Token) result.getResult();
+            return Response.status(result.getStatus().getStatus()).entity(t).build();
         }
         return Response.status(result.getStatus().getStatus()).entity(result).build();
-        
     }
 }

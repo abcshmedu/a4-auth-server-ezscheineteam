@@ -12,6 +12,10 @@ import edu.hm.oauth.repository.UserRepository;
 import edu.hm.oauth.repository.UserRepositoryStub;
 import edu.hm.oauth.toolbox.Toolbox;
 
+/**
+ * Stub implementation of the user service.
+ *
+ */
 public class UserServiceStub implements UserService {
 
     private UserRepository userRepository = new UserRepositoryStub();
@@ -26,7 +30,7 @@ public class UserServiceStub implements UserService {
         }
 
         // check if email regex correct
-        if(!Toolbox.validateEmail(user.getEmail())){
+        if (!Toolbox.validateEmail(user.getEmail())) {
             return ServiceStatus.USER_INVALID_EMAIL;
         }
         // clone required user data - name, email, password - other fields are
@@ -64,9 +68,9 @@ public class UserServiceStub implements UserService {
     @Override
     public ServiceResult getUser(String userID) {
         User user = userRepository.getUser(userID);
-        if (user != null)
+        if (user != null) {
             return new ServiceResult(ServiceStatus.OK, user);
-        else {
+        } else {
             return new ServiceResult(ServiceStatus.USER_NOT_FOUND, null);
         }
     }
