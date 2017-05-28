@@ -27,4 +27,12 @@ public interface TokenRepository {
      */
     Token validateToken(String token);
 
+    /**
+     * Deletes a token from the system.
+     * 
+     * @param t
+     *            - Token to be deleted
+     * @return True if deleted correctly.
+     */
+    boolean deleteToken(Token t);
 }

@@ -44,4 +44,9 @@ public class TokenRepositoryStub implements TokenRepository {
         return null;
     }
 
+    @Override
+    public boolean deleteToken(Token t) {
+        return storedTokens.remove(t);
+    }
+
 }
