@@ -67,8 +67,15 @@ public class UsersResource {
     @Path("{id}")
     @Produces(MediaType.APPLICATION_JSON)
     public Response updateUser(User user) {
+        // the user can change only the password and email values
+        ServiceResult getUserResult = userService.getUser(user.getName());
         
-        return Response.ok("").build();
+        // if user not found send error
+        if (!getUserResult.getStatus().equals(ServiceStatus.OK))
+            return Response.status(getUserResult.getStatus().getStatus()).entity(getUserResult).build();
+        // otherwise proceed
+        ServiceResult updateResult = userService.updateUser(user);
+        return Response.ok().entity(updateResult.getResult()).build();
     }
 
     @GET

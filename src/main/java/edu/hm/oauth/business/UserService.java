@@ -11,7 +11,7 @@ public interface UserService {
 
     ServiceResult getUser(String userID);
 
-    ServiceStatus updateUser(User user);
+    ServiceResult updateUser(User user);
 
 	ServiceResult authenticateUser(AuthData adata);
 
