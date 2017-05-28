@@ -37,10 +37,9 @@ public class UsersResource {
     @POST
     @Path("create")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response createUser() {
-        // Copy copy = new Copy(user, book);
-        // ServiceStatus result = copyService.addBook(copy);
-        return Response.ok("response").build();
+    public Response createUser(User user) {
+        ServiceStatus status = userService.addUser(user);
+        return Response.status(status.getStatus()).entity(status.getDetail()).build();
     }
 
     @POST

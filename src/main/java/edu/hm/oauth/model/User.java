@@ -14,13 +14,9 @@ public class User {
 	private String name;
 	@JsonIgnore
 	private String password;
-	@JsonIgnore
 	private int iD;
-	@JsonIgnore
 	private boolean active;
-	@JsonIgnore
 	private String email;
-	@JsonIgnore
 	private UserGroup group;
 
 	/**

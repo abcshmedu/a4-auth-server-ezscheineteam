@@ -10,11 +10,13 @@ import javax.ws.rs.core.Response;
  */
 @JsonFormat(shape = JsonFormat.Shape.OBJECT)
 public enum ServiceStatus {
-    OK(Response.Status.OK, "Tutto bene."), TOKEN_NOT_FOUND(Response.Status.NOT_FOUND,
-            "Token was not found."), TOKEN_TIMEOUT(Response.Status.GONE, "Token is no longer valid."), USER_NOT_FOUND(
-                    Response.Status.NOT_FOUND, "User with this name was not found."), USER_INVALID_CREDENTIALS(
-                            Response.Status.UNAUTHORIZED, "Supplied user credentials incorrect."), ERROR_PARSING_JSON(
-                                    Response.Status.BAD_REQUEST, "Das JSON-Objekt konnte nicht gelesen werden.");
+    OK(Response.Status.OK, "Tutto bene."), TOKEN_NOT_FOUND(Response.Status.NOT_FOUND, "Token was not found."), 
+    TOKEN_TIMEOUT(Response.Status.GONE, "Token is no longer valid."), 
+    USER_NOT_FOUND(Response.Status.NOT_FOUND, "User with this name was not found."), 
+    USER_INVALID_CREDENTIALS(Response.Status.UNAUTHORIZED, "Supplied user credentials incorrect."),
+    ERROR_PARSING_JSON(Response.Status.BAD_REQUEST, "Das JSON-Objekt konnte nicht gelesen werden."), 
+    USER_ALREADY_EXISTS(Response.Status.CONFLICT, "User mit diesem Namen existiert schon."),
+    USER_INVALID_EMAIL(Response.Status.BAD_REQUEST, "Die angegebene E-Mail Adresse ist nicht korrekt strukturiert.");
 
     /**
      * Returns the status of an operation.
