@@ -22,22 +22,22 @@ URI|Methode|Beschreibung
 #### AuthData:
 ```javascript
 {
-    "name"  : "<string>",
-    "password" : "<stirng>"
+    "name"  : <string>,
+    "password" : <string>
 }
 ```
 #### User:
 ```javascript
 {
-    "name"    : "<string>",
-    "password"  : "<stirng>",
-    "email" : "<string>",
+    "name"    : <string>,
+    "password"  : <string>,
+    "email" : <string>,
 }
 ```
 #### Token - Authentifizierungsresponse:
 ```javascript
 {
-    "token"    : "<string>",
+    "token"    : <string>,
 }
 ```
 #### Token - /check/{token}:
