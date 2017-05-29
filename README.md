@@ -31,13 +31,13 @@ URI|Methode|Beschreibung
 {
     "name"    : <string>,
     "password"  : <string>,
-    "email" : <string>,
+    "email" : <string>
 }
 ```
 #### Token - Authentifizierungsresponse:
 ```javascript
 {
-    "token"    : <string>,
+    "token"    : <string>
 }
 ```
 #### Token - /check/{token}:
