@@ -9,12 +9,13 @@ import org.junit.runners.Suite;
 
 import edu.hm.oauth.model.AuthDataTest;
 import edu.hm.oauth.model.TokenTest;
+import edu.hm.oauth.model.UserTest;
 import edu.hm.oauth.toolbox.ToolboxTest;
 
 //CHECKSTYLE:OFF:
 @RunWith(Suite.class)
 //CHECKSTYLE:ON:
-@Suite.SuiteClasses({ ToolboxTest.class, AuthDataTest.class, TokenTest.class })
+@Suite.SuiteClasses({ ToolboxTest.class, AuthDataTest.class, TokenTest.class, UserTest.class })
 @SuppressWarnings("JavadocMethod")
 public class OauthTestSuite {
 
