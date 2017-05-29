@@ -43,11 +43,11 @@ URI|Methode|Beschreibung
 #### Token - /check/{token}:
 ```javascript
 {
-    "createdOn": <long>,
-    "validUntil": <long>,
+    "createdOn": <integer>,
+    "validUntil": <integer>,
     "user": {
         "name": <string>,
-        "iD": <int>,
+        "iD": <integer>,
         "active": <boolean>,
         "email": <string>,
         "group": <string>
